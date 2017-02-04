@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Future Imperfect
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    /[if lte IE 8] <script src="assets/js/ie/html5shiv.js"></script>
+    /[if lte IE 9] <link rel="stylesheet" href="assets/css/ie9.css" />
+    /[if lte IE 8] <link rel="stylesheet" href="assets/css/ie8.css" />
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield
