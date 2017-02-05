@@ -1,71 +1,2390 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- @import 'libs/vars'
- @import 'libs/functions'
- @import 'libs/mixins'
- @import 'libs/skel'
- @import 'font-awesome.min.css'
- @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900')
+@import url(font-awesome.min.css)
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900")
 
- /*
- 	Future Imperfect by HTML5 UP
- 	html5up.net | @n33co
- 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
- */
+/* Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
 
- 	@include skel-breakpoints((
- 		xlarge: '(max-width: 1680px)',
- 		large: '(max-width: 1280px)',
- 		medium: '(max-width: 980px)',
- 		small: '(max-width: 736px)',
- 		xsmall: '(max-width: 480px)'
- 	))
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
 
- 	@include skel-layout((
- 		reset: 'full',
- 		boxModel: 'border',
- 		grid: ( gutters: 1em )
- 	))
+body
+  line-height: 1
 
- // Base.
+ol, ul
+  list-style: none
 
- 	@import 'base/page'
- 	@import 'base/typography'
+blockquote, q
+  quotes: none
 
- // Component.
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
 
- 	@import 'components/author'
- 	@import 'components/blurb'
- 	@import 'components/box'
- 	@import 'components/button'
- 	@import 'components/form'
- 	@import 'components/icon'
- 	@import 'components/image'
- 	@import 'components/list'
- 	@import 'components/mini-post'
- 	@import 'components/post'
- 	@import 'components/section'
- 	@import 'components/table'
+q
+  &:before, &:after
+    content: ''
+    content: none
 
- // Layout.
+table
+  border-collapse: collapse
+  border-spacing: 0
 
- 	@import 'layout/header'
- 	@import 'layout/wrapper'
- 	@import 'layout/main'
- 	@import 'layout/sidebar'
- 	@import 'layout/intro'
- 	@import 'layout/footer'
- 	@import 'layout/menu'
+body
+  -webkit-text-size-adjust: none
+
+/* Box Model */
+
+*
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  &:before, &:after
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+/* Grid */
+
+.row
+  border-bottom: solid 1px transparent
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  > *
+    float: left
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+  &:after, &:before
+    content: ''
+    display: block
+    clear: both
+    height: 0
+  &.uniform > * >
+    \:first-child
+      margin-top: 0
+    \:last-child
+      margin-bottom: 0
+  &.\30 \25
+    > *
+      padding: 0 0 0 0em
+    margin: 0 0 -1px 0em
+  &.uniform
+    &.\30 \25
+      > *
+        padding: 0em 0 0 0em
+      margin: 0em 0 -1px 0em
+    > *
+      padding: 1em 0 0 1em
+    margin: -1em 0 -1px -1em
+  > *
+    padding: 0 0 0 1em
+  margin: 0 0 -1px -1em
+  &.\32 00\25
+    > *
+      padding: 0 0 0 2em
+    margin: 0 0 -1px -2em
+  &.uniform.\32 00\25
+    > *
+      padding: 2em 0 0 2em
+    margin: -2em 0 -1px -2em
+  &.\31 50\25
+    > *
+      padding: 0 0 0 1.5em
+    margin: 0 0 -1px -1.5em
+  &.uniform.\31 50\25
+    > *
+      padding: 1.5em 0 0 1.5em
+    margin: -1.5em 0 -1px -1.5em
+  &.\35 0\25
+    > *
+      padding: 0 0 0 0.5em
+    margin: 0 0 -1px -0.5em
+  &.uniform.\35 0\25
+    > *
+      padding: 0.5em 0 0 0.5em
+    margin: -0.5em 0 -1px -0.5em
+  &.\32 5\25
+    > *
+      padding: 0 0 0 0.25em
+    margin: 0 0 -1px -0.25em
+  &.uniform.\32 5\25
+    > *
+      padding: 0.25em 0 0 0.25em
+    margin: -0.25em 0 -1px -0.25em
+
+.\31 2u, .\31 2u\24
+  width: 100%
+  clear: none
+  margin-left: 0
+
+.\31 1u, .\31 1u\24
+  width: 91.6666666667%
+  clear: none
+  margin-left: 0
+
+.\31 0u, .\31 0u\24
+  width: 83.3333333333%
+  clear: none
+  margin-left: 0
+
+.\39 u, .\39 u\24
+  width: 75%
+  clear: none
+  margin-left: 0
+
+.\38 u, .\38 u\24
+  width: 66.6666666667%
+  clear: none
+  margin-left: 0
+
+.\37 u, .\37 u\24
+  width: 58.3333333333%
+  clear: none
+  margin-left: 0
+
+.\36 u, .\36 u\24
+  width: 50%
+  clear: none
+  margin-left: 0
+
+.\35 u, .\35 u\24
+  width: 41.6666666667%
+  clear: none
+  margin-left: 0
+
+.\34 u, .\34 u\24
+  width: 33.3333333333%
+  clear: none
+  margin-left: 0
+
+.\33 u, .\33 u\24
+  width: 25%
+  clear: none
+  margin-left: 0
+
+.\32 u, .\32 u\24
+  width: 16.6666666667%
+  clear: none
+  margin-left: 0
+
+.\31 u, .\31 u\24
+  width: 8.3333333333%
+  clear: none
+  margin-left: 0
+
+.\31 2u\24  + *, .\31 1u\24  + *, .\31 0u\24  + *, .\39 u\24  + *, .\38 u\24  + *, .\37 u\24  + *, .\36 u\24  + *, .\35 u\24  + *, .\34 u\24  + *, .\33 u\24  + *, .\32 u\24  + *, .\31 u\24  + *
+  clear: left
+
+.\-11u
+  margin-left: 91.66667%
+
+.\-10u
+  margin-left: 83.33333%
+
+.\-9u
+  margin-left: 75%
+
+.\-8u
+  margin-left: 66.66667%
+
+.\-7u
+  margin-left: 58.33333%
+
+.\-6u
+  margin-left: 50%
+
+.\-5u
+  margin-left: 41.66667%
+
+.\-4u
+  margin-left: 33.33333%
+
+.\-3u
+  margin-left: 25%
+
+.\-2u
+  margin-left: 16.66667%
+
+.\-1u
+  margin-left: 8.33333%
+
+@media screen and (max-width: 1680px)
+  .row
+    > *
+      padding: 0 0 0 1em
+    margin: 0 0 -1px -1em
+    &.uniform
+      > *
+        padding: 1em 0 0 1em
+      margin: -1em 0 -1px -1em
+    &.\32 00\25  > *
+      padding: 0 0 0 2em
+    &.\32 00\25
+      margin: 0 0 -1px -2em
+    &.uniform
+      &.\32 00\25  > *
+        padding: 2em 0 0 2em
+      &.\32 00\25
+        margin: -2em 0 -1px -2em
+    &.\31 50\25  > *
+      padding: 0 0 0 1.5em
+    &.\31 50\25
+      margin: 0 0 -1px -1.5em
+    &.uniform
+      &.\31 50\25  > *
+        padding: 1.5em 0 0 1.5em
+      &.\31 50\25
+        margin: -1.5em 0 -1px -1.5em
+    &.\35 0\25  > *
+      padding: 0 0 0 0.5em
+    &.\35 0\25
+      margin: 0 0 -1px -0.5em
+    &.uniform
+      &.\35 0\25  > *
+        padding: 0.5em 0 0 0.5em
+      &.\35 0\25
+        margin: -0.5em 0 -1px -0.5em
+    &.\32 5\25  > *
+      padding: 0 0 0 0.25em
+    &.\32 5\25
+      margin: 0 0 -1px -0.25em
+    &.uniform
+      &.\32 5\25  > *
+        padding: 0.25em 0 0 0.25em
+      &.\32 5\25
+        margin: -0.25em 0 -1px -0.25em
+  .\31 2u\28xlarge\29, .\31 2u\24\28xlarge\29
+    width: 100%
+    clear: none
+    margin-left: 0
+  .\31 1u\28xlarge\29, .\31 1u\24\28xlarge\29
+    width: 91.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 0u\28xlarge\29, .\31 0u\24\28xlarge\29
+    width: 83.3333333333%
+    clear: none
+    margin-left: 0
+  .\39 u\28xlarge\29, .\39 u\24\28xlarge\29
+    width: 75%
+    clear: none
+    margin-left: 0
+  .\38 u\28xlarge\29, .\38 u\24\28xlarge\29
+    width: 66.6666666667%
+    clear: none
+    margin-left: 0
+  .\37 u\28xlarge\29, .\37 u\24\28xlarge\29
+    width: 58.3333333333%
+    clear: none
+    margin-left: 0
+  .\36 u\28xlarge\29, .\36 u\24\28xlarge\29
+    width: 50%
+    clear: none
+    margin-left: 0
+  .\35 u\28xlarge\29, .\35 u\24\28xlarge\29
+    width: 41.6666666667%
+    clear: none
+    margin-left: 0
+  .\34 u\28xlarge\29, .\34 u\24\28xlarge\29
+    width: 33.3333333333%
+    clear: none
+    margin-left: 0
+  .\33 u\28xlarge\29, .\33 u\24\28xlarge\29
+    width: 25%
+    clear: none
+    margin-left: 0
+  .\32 u\28xlarge\29, .\32 u\24\28xlarge\29
+    width: 16.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 u\28xlarge\29, .\31 u\24\28xlarge\29
+    width: 8.3333333333%
+    clear: none
+    margin-left: 0
+  .\31 2u\24\28xlarge\29  + *, .\31 1u\24\28xlarge\29  + *, .\31 0u\24\28xlarge\29  + *, .\39 u\24\28xlarge\29  + *, .\38 u\24\28xlarge\29  + *, .\37 u\24\28xlarge\29  + *, .\36 u\24\28xlarge\29  + *, .\35 u\24\28xlarge\29  + *, .\34 u\24\28xlarge\29  + *, .\33 u\24\28xlarge\29  + *, .\32 u\24\28xlarge\29  + *, .\31 u\24\28xlarge\29  + *
+    clear: left
+  .\-11u\28xlarge\29
+    margin-left: 91.66667%
+  .\-10u\28xlarge\29
+    margin-left: 83.33333%
+  .\-9u\28xlarge\29
+    margin-left: 75%
+  .\-8u\28xlarge\29
+    margin-left: 66.66667%
+  .\-7u\28xlarge\29
+    margin-left: 58.33333%
+  .\-6u\28xlarge\29
+    margin-left: 50%
+  .\-5u\28xlarge\29
+    margin-left: 41.66667%
+  .\-4u\28xlarge\29
+    margin-left: 33.33333%
+  .\-3u\28xlarge\29
+    margin-left: 25%
+  .\-2u\28xlarge\29
+    margin-left: 16.66667%
+  .\-1u\28xlarge\29
+    margin-left: 8.33333%
+
+@media screen and (max-width: 1280px)
+  .row
+    > *
+      padding: 0 0 0 1em
+    margin: 0 0 -1px -1em
+    &.uniform
+      > *
+        padding: 1em 0 0 1em
+      margin: -1em 0 -1px -1em
+    &.\32 00\25  > *
+      padding: 0 0 0 2em
+    &.\32 00\25
+      margin: 0 0 -1px -2em
+    &.uniform
+      &.\32 00\25  > *
+        padding: 2em 0 0 2em
+      &.\32 00\25
+        margin: -2em 0 -1px -2em
+    &.\31 50\25  > *
+      padding: 0 0 0 1.5em
+    &.\31 50\25
+      margin: 0 0 -1px -1.5em
+    &.uniform
+      &.\31 50\25  > *
+        padding: 1.5em 0 0 1.5em
+      &.\31 50\25
+        margin: -1.5em 0 -1px -1.5em
+    &.\35 0\25  > *
+      padding: 0 0 0 0.5em
+    &.\35 0\25
+      margin: 0 0 -1px -0.5em
+    &.uniform
+      &.\35 0\25  > *
+        padding: 0.5em 0 0 0.5em
+      &.\35 0\25
+        margin: -0.5em 0 -1px -0.5em
+    &.\32 5\25  > *
+      padding: 0 0 0 0.25em
+    &.\32 5\25
+      margin: 0 0 -1px -0.25em
+    &.uniform
+      &.\32 5\25  > *
+        padding: 0.25em 0 0 0.25em
+      &.\32 5\25
+        margin: -0.25em 0 -1px -0.25em
+  .\31 2u\28large\29, .\31 2u\24\28large\29
+    width: 100%
+    clear: none
+    margin-left: 0
+  .\31 1u\28large\29, .\31 1u\24\28large\29
+    width: 91.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 0u\28large\29, .\31 0u\24\28large\29
+    width: 83.3333333333%
+    clear: none
+    margin-left: 0
+  .\39 u\28large\29, .\39 u\24\28large\29
+    width: 75%
+    clear: none
+    margin-left: 0
+  .\38 u\28large\29, .\38 u\24\28large\29
+    width: 66.6666666667%
+    clear: none
+    margin-left: 0
+  .\37 u\28large\29, .\37 u\24\28large\29
+    width: 58.3333333333%
+    clear: none
+    margin-left: 0
+  .\36 u\28large\29, .\36 u\24\28large\29
+    width: 50%
+    clear: none
+    margin-left: 0
+  .\35 u\28large\29, .\35 u\24\28large\29
+    width: 41.6666666667%
+    clear: none
+    margin-left: 0
+  .\34 u\28large\29, .\34 u\24\28large\29
+    width: 33.3333333333%
+    clear: none
+    margin-left: 0
+  .\33 u\28large\29, .\33 u\24\28large\29
+    width: 25%
+    clear: none
+    margin-left: 0
+  .\32 u\28large\29, .\32 u\24\28large\29
+    width: 16.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 u\28large\29, .\31 u\24\28large\29
+    width: 8.3333333333%
+    clear: none
+    margin-left: 0
+  .\31 2u\24\28large\29  + *, .\31 1u\24\28large\29  + *, .\31 0u\24\28large\29  + *, .\39 u\24\28large\29  + *, .\38 u\24\28large\29  + *, .\37 u\24\28large\29  + *, .\36 u\24\28large\29  + *, .\35 u\24\28large\29  + *, .\34 u\24\28large\29  + *, .\33 u\24\28large\29  + *, .\32 u\24\28large\29  + *, .\31 u\24\28large\29  + *
+    clear: left
+  .\-11u\28large\29
+    margin-left: 91.66667%
+  .\-10u\28large\29
+    margin-left: 83.33333%
+  .\-9u\28large\29
+    margin-left: 75%
+  .\-8u\28large\29
+    margin-left: 66.66667%
+  .\-7u\28large\29
+    margin-left: 58.33333%
+  .\-6u\28large\29
+    margin-left: 50%
+  .\-5u\28large\29
+    margin-left: 41.66667%
+  .\-4u\28large\29
+    margin-left: 33.33333%
+  .\-3u\28large\29
+    margin-left: 25%
+  .\-2u\28large\29
+    margin-left: 16.66667%
+  .\-1u\28large\29
+    margin-left: 8.33333%
+
+@media screen and (max-width: 980px)
+  .row
+    > *
+      padding: 0 0 0 1em
+    margin: 0 0 -1px -1em
+    &.uniform
+      > *
+        padding: 1em 0 0 1em
+      margin: -1em 0 -1px -1em
+    &.\32 00\25  > *
+      padding: 0 0 0 2em
+    &.\32 00\25
+      margin: 0 0 -1px -2em
+    &.uniform
+      &.\32 00\25  > *
+        padding: 2em 0 0 2em
+      &.\32 00\25
+        margin: -2em 0 -1px -2em
+    &.\31 50\25  > *
+      padding: 0 0 0 1.5em
+    &.\31 50\25
+      margin: 0 0 -1px -1.5em
+    &.uniform
+      &.\31 50\25  > *
+        padding: 1.5em 0 0 1.5em
+      &.\31 50\25
+        margin: -1.5em 0 -1px -1.5em
+    &.\35 0\25  > *
+      padding: 0 0 0 0.5em
+    &.\35 0\25
+      margin: 0 0 -1px -0.5em
+    &.uniform
+      &.\35 0\25  > *
+        padding: 0.5em 0 0 0.5em
+      &.\35 0\25
+        margin: -0.5em 0 -1px -0.5em
+    &.\32 5\25  > *
+      padding: 0 0 0 0.25em
+    &.\32 5\25
+      margin: 0 0 -1px -0.25em
+    &.uniform
+      &.\32 5\25  > *
+        padding: 0.25em 0 0 0.25em
+      &.\32 5\25
+        margin: -0.25em 0 -1px -0.25em
+  .\31 2u\28medium\29, .\31 2u\24\28medium\29
+    width: 100%
+    clear: none
+    margin-left: 0
+  .\31 1u\28medium\29, .\31 1u\24\28medium\29
+    width: 91.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 0u\28medium\29, .\31 0u\24\28medium\29
+    width: 83.3333333333%
+    clear: none
+    margin-left: 0
+  .\39 u\28medium\29, .\39 u\24\28medium\29
+    width: 75%
+    clear: none
+    margin-left: 0
+  .\38 u\28medium\29, .\38 u\24\28medium\29
+    width: 66.6666666667%
+    clear: none
+    margin-left: 0
+  .\37 u\28medium\29, .\37 u\24\28medium\29
+    width: 58.3333333333%
+    clear: none
+    margin-left: 0
+  .\36 u\28medium\29, .\36 u\24\28medium\29
+    width: 50%
+    clear: none
+    margin-left: 0
+  .\35 u\28medium\29, .\35 u\24\28medium\29
+    width: 41.6666666667%
+    clear: none
+    margin-left: 0
+  .\34 u\28medium\29, .\34 u\24\28medium\29
+    width: 33.3333333333%
+    clear: none
+    margin-left: 0
+  .\33 u\28medium\29, .\33 u\24\28medium\29
+    width: 25%
+    clear: none
+    margin-left: 0
+  .\32 u\28medium\29, .\32 u\24\28medium\29
+    width: 16.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 u\28medium\29, .\31 u\24\28medium\29
+    width: 8.3333333333%
+    clear: none
+    margin-left: 0
+  .\31 2u\24\28medium\29  + *, .\31 1u\24\28medium\29  + *, .\31 0u\24\28medium\29  + *, .\39 u\24\28medium\29  + *, .\38 u\24\28medium\29  + *, .\37 u\24\28medium\29  + *, .\36 u\24\28medium\29  + *, .\35 u\24\28medium\29  + *, .\34 u\24\28medium\29  + *, .\33 u\24\28medium\29  + *, .\32 u\24\28medium\29  + *, .\31 u\24\28medium\29  + *
+    clear: left
+  .\-11u\28medium\29
+    margin-left: 91.66667%
+  .\-10u\28medium\29
+    margin-left: 83.33333%
+  .\-9u\28medium\29
+    margin-left: 75%
+  .\-8u\28medium\29
+    margin-left: 66.66667%
+  .\-7u\28medium\29
+    margin-left: 58.33333%
+  .\-6u\28medium\29
+    margin-left: 50%
+  .\-5u\28medium\29
+    margin-left: 41.66667%
+  .\-4u\28medium\29
+    margin-left: 33.33333%
+  .\-3u\28medium\29
+    margin-left: 25%
+  .\-2u\28medium\29
+    margin-left: 16.66667%
+  .\-1u\28medium\29
+    margin-left: 8.33333%
+
+@media screen and (max-width: 736px)
+  .row
+    > *
+      padding: 0 0 0 1em
+    margin: 0 0 -1px -1em
+    &.uniform
+      > *
+        padding: 1em 0 0 1em
+      margin: -1em 0 -1px -1em
+    &.\32 00\25  > *
+      padding: 0 0 0 2em
+    &.\32 00\25
+      margin: 0 0 -1px -2em
+    &.uniform
+      &.\32 00\25  > *
+        padding: 2em 0 0 2em
+      &.\32 00\25
+        margin: -2em 0 -1px -2em
+    &.\31 50\25  > *
+      padding: 0 0 0 1.5em
+    &.\31 50\25
+      margin: 0 0 -1px -1.5em
+    &.uniform
+      &.\31 50\25  > *
+        padding: 1.5em 0 0 1.5em
+      &.\31 50\25
+        margin: -1.5em 0 -1px -1.5em
+    &.\35 0\25  > *
+      padding: 0 0 0 0.5em
+    &.\35 0\25
+      margin: 0 0 -1px -0.5em
+    &.uniform
+      &.\35 0\25  > *
+        padding: 0.5em 0 0 0.5em
+      &.\35 0\25
+        margin: -0.5em 0 -1px -0.5em
+    &.\32 5\25  > *
+      padding: 0 0 0 0.25em
+    &.\32 5\25
+      margin: 0 0 -1px -0.25em
+    &.uniform
+      &.\32 5\25  > *
+        padding: 0.25em 0 0 0.25em
+      &.\32 5\25
+        margin: -0.25em 0 -1px -0.25em
+  .\31 2u\28small\29, .\31 2u\24\28small\29
+    width: 100%
+    clear: none
+    margin-left: 0
+  .\31 1u\28small\29, .\31 1u\24\28small\29
+    width: 91.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 0u\28small\29, .\31 0u\24\28small\29
+    width: 83.3333333333%
+    clear: none
+    margin-left: 0
+  .\39 u\28small\29, .\39 u\24\28small\29
+    width: 75%
+    clear: none
+    margin-left: 0
+  .\38 u\28small\29, .\38 u\24\28small\29
+    width: 66.6666666667%
+    clear: none
+    margin-left: 0
+  .\37 u\28small\29, .\37 u\24\28small\29
+    width: 58.3333333333%
+    clear: none
+    margin-left: 0
+  .\36 u\28small\29, .\36 u\24\28small\29
+    width: 50%
+    clear: none
+    margin-left: 0
+  .\35 u\28small\29, .\35 u\24\28small\29
+    width: 41.6666666667%
+    clear: none
+    margin-left: 0
+  .\34 u\28small\29, .\34 u\24\28small\29
+    width: 33.3333333333%
+    clear: none
+    margin-left: 0
+  .\33 u\28small\29, .\33 u\24\28small\29
+    width: 25%
+    clear: none
+    margin-left: 0
+  .\32 u\28small\29, .\32 u\24\28small\29
+    width: 16.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 u\28small\29, .\31 u\24\28small\29
+    width: 8.3333333333%
+    clear: none
+    margin-left: 0
+  .\31 2u\24\28small\29  + *, .\31 1u\24\28small\29  + *, .\31 0u\24\28small\29  + *, .\39 u\24\28small\29  + *, .\38 u\24\28small\29  + *, .\37 u\24\28small\29  + *, .\36 u\24\28small\29  + *, .\35 u\24\28small\29  + *, .\34 u\24\28small\29  + *, .\33 u\24\28small\29  + *, .\32 u\24\28small\29  + *, .\31 u\24\28small\29  + *
+    clear: left
+  .\-11u\28small\29
+    margin-left: 91.66667%
+  .\-10u\28small\29
+    margin-left: 83.33333%
+  .\-9u\28small\29
+    margin-left: 75%
+  .\-8u\28small\29
+    margin-left: 66.66667%
+  .\-7u\28small\29
+    margin-left: 58.33333%
+  .\-6u\28small\29
+    margin-left: 50%
+  .\-5u\28small\29
+    margin-left: 41.66667%
+  .\-4u\28small\29
+    margin-left: 33.33333%
+  .\-3u\28small\29
+    margin-left: 25%
+  .\-2u\28small\29
+    margin-left: 16.66667%
+  .\-1u\28small\29
+    margin-left: 8.33333%
+
+@media screen and (max-width: 480px)
+  .row
+    > *
+      padding: 0 0 0 1em
+    margin: 0 0 -1px -1em
+    &.uniform
+      > *
+        padding: 1em 0 0 1em
+      margin: -1em 0 -1px -1em
+    &.\32 00\25  > *
+      padding: 0 0 0 2em
+    &.\32 00\25
+      margin: 0 0 -1px -2em
+    &.uniform
+      &.\32 00\25  > *
+        padding: 2em 0 0 2em
+      &.\32 00\25
+        margin: -2em 0 -1px -2em
+    &.\31 50\25  > *
+      padding: 0 0 0 1.5em
+    &.\31 50\25
+      margin: 0 0 -1px -1.5em
+    &.uniform
+      &.\31 50\25  > *
+        padding: 1.5em 0 0 1.5em
+      &.\31 50\25
+        margin: -1.5em 0 -1px -1.5em
+    &.\35 0\25  > *
+      padding: 0 0 0 0.5em
+    &.\35 0\25
+      margin: 0 0 -1px -0.5em
+    &.uniform
+      &.\35 0\25  > *
+        padding: 0.5em 0 0 0.5em
+      &.\35 0\25
+        margin: -0.5em 0 -1px -0.5em
+    &.\32 5\25  > *
+      padding: 0 0 0 0.25em
+    &.\32 5\25
+      margin: 0 0 -1px -0.25em
+    &.uniform
+      &.\32 5\25  > *
+        padding: 0.25em 0 0 0.25em
+      &.\32 5\25
+        margin: -0.25em 0 -1px -0.25em
+  .\31 2u\28xsmall\29, .\31 2u\24\28xsmall\29
+    width: 100%
+    clear: none
+    margin-left: 0
+  .\31 1u\28xsmall\29, .\31 1u\24\28xsmall\29
+    width: 91.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 0u\28xsmall\29, .\31 0u\24\28xsmall\29
+    width: 83.3333333333%
+    clear: none
+    margin-left: 0
+  .\39 u\28xsmall\29, .\39 u\24\28xsmall\29
+    width: 75%
+    clear: none
+    margin-left: 0
+  .\38 u\28xsmall\29, .\38 u\24\28xsmall\29
+    width: 66.6666666667%
+    clear: none
+    margin-left: 0
+  .\37 u\28xsmall\29, .\37 u\24\28xsmall\29
+    width: 58.3333333333%
+    clear: none
+    margin-left: 0
+  .\36 u\28xsmall\29, .\36 u\24\28xsmall\29
+    width: 50%
+    clear: none
+    margin-left: 0
+  .\35 u\28xsmall\29, .\35 u\24\28xsmall\29
+    width: 41.6666666667%
+    clear: none
+    margin-left: 0
+  .\34 u\28xsmall\29, .\34 u\24\28xsmall\29
+    width: 33.3333333333%
+    clear: none
+    margin-left: 0
+  .\33 u\28xsmall\29, .\33 u\24\28xsmall\29
+    width: 25%
+    clear: none
+    margin-left: 0
+  .\32 u\28xsmall\29, .\32 u\24\28xsmall\29
+    width: 16.6666666667%
+    clear: none
+    margin-left: 0
+  .\31 u\28xsmall\29, .\31 u\24\28xsmall\29
+    width: 8.3333333333%
+    clear: none
+    margin-left: 0
+  .\31 2u\24\28xsmall\29  + *, .\31 1u\24\28xsmall\29  + *, .\31 0u\24\28xsmall\29  + *, .\39 u\24\28xsmall\29  + *, .\38 u\24\28xsmall\29  + *, .\37 u\24\28xsmall\29  + *, .\36 u\24\28xsmall\29  + *, .\35 u\24\28xsmall\29  + *, .\34 u\24\28xsmall\29  + *, .\33 u\24\28xsmall\29  + *, .\32 u\24\28xsmall\29  + *, .\31 u\24\28xsmall\29  + *
+    clear: left
+  .\-11u\28xsmall\29
+    margin-left: 91.66667%
+  .\-10u\28xsmall\29
+    margin-left: 83.33333%
+  .\-9u\28xsmall\29
+    margin-left: 75%
+  .\-8u\28xsmall\29
+    margin-left: 66.66667%
+  .\-7u\28xsmall\29
+    margin-left: 58.33333%
+  .\-6u\28xsmall\29
+    margin-left: 50%
+  .\-5u\28xsmall\29
+    margin-left: 41.66667%
+  .\-4u\28xsmall\29
+    margin-left: 33.33333%
+  .\-3u\28xsmall\29
+    margin-left: 25%
+  .\-2u\28xsmall\29
+    margin-left: 16.66667%
+  .\-1u\28xsmall\29
+    margin-left: 8.33333%
+
+/* Basic */
+
+@-ms-viewport
+  width: device-width
+
+
+body
+  -ms-overflow-style: scrollbar
+  background: #f4f4f4
+  &.is-loading *
+    -moz-animation: none !important
+    -webkit-animation: none !important
+    -ms-animation: none !important
+    animation: none !important
+    -moz-transition: none !important
+    -webkit-transition: none !important
+    -ms-transition: none !important
+    transition: none !important
+    &:before, &:after
+      -moz-animation: none !important
+      -webkit-animation: none !important
+      -ms-animation: none !important
+      animation: none !important
+      -moz-transition: none !important
+      -webkit-transition: none !important
+      -ms-transition: none !important
+      transition: none !important
+  color: #646464
+  font-family: "Source Sans Pro", Helvetica, sans-serif
+  font-size: 14pt
+  font-weight: 400
+  line-height: 1.75
+
+@media screen and (max-width: 480px)
+  html, body
+    min-width: 320px
+
+/* Type */
+
+input, select, textarea
+  color: #646464
+  font-family: "Source Sans Pro", Helvetica, sans-serif
+  font-size: 14pt
+  font-weight: 400
+  line-height: 1.75
+
+@media screen and (max-width: 1680px)
+  body, input, select, textarea
+    font-size: 12pt
+
+@media screen and (max-width: 1280px)
+  body, input, select, textarea
+    font-size: 12pt
+
+@media screen and (max-width: 980px)
+  body, input, select, textarea
+    font-size: 12pt
+
+@media screen and (max-width: 736px)
+  body, input, select, textarea
+    font-size: 12pt
+
+@media screen and (max-width: 480px)
+  body, input, select, textarea
+    font-size: 12pt
+
+a
+  -moz-transition: color 0.2s ease, border-bottom-color 0.2s ease
+  -webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease
+  -ms-transition: color 0.2s ease, border-bottom-color 0.2s ease
+  transition: color 0.2s ease, border-bottom-color 0.2s ease
+  border-bottom: dotted 1px rgba(160, 160, 160, 0.65)
+  color: inherit
+  text-decoration: none
+  &:before
+    -moz-transition: color 0.2s ease
+    -webkit-transition: color 0.2s ease
+    -ms-transition: color 0.2s ease
+    transition: color 0.2s ease
+  &:hover
+    border-bottom-color: transparent
+    color: #2ebaae !important
+    &:before
+      color: #2ebaae !important
+
+strong, b
+  color: #3c3b3b
+  font-weight: 700
+
+em, i
+  font-style: italic
+
+p
+  margin: 0 0 2em 0
+
+h1, h2, h3, h4, h5, h6
+  color: #3c3b3b
+  font-family: "Raleway", Helvetica, sans-serif
+  font-weight: 800
+  letter-spacing: 0.25em
+  line-height: 1.65
+  margin: 0 0 1em 0
+  text-transform: uppercase
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+  color: inherit
+  border-bottom: 0
+
+h2
+  font-size: 1.1em
+
+h3
+  font-size: 0.9em
+
+h4, h5, h6
+  font-size: 0.7em
+
+sub
+  font-size: 0.8em
+  position: relative
+  top: 0.5em
+
+sup
+  font-size: 0.8em
+  position: relative
+  top: -0.5em
+
+blockquote
+  border-left: solid 4px rgba(160, 160, 160, 0.3)
+  font-style: italic
+  margin: 0 0 2em 0
+  padding: 0.5em 0 0.5em 2em
+
+code
+  background: rgba(160, 160, 160, 0.075)
+  border: solid 1px rgba(160, 160, 160, 0.3)
+  font-family: "Courier New", monospace
+  font-size: 0.9em
+  margin: 0 0.25em
+  padding: 0.25em 0.65em
+
+pre
+  -webkit-overflow-scrolling: touch
+  font-family: "Courier New", monospace
+  font-size: 0.9em
+  margin: 0 0 2em 0
+  code
+    display: block
+    line-height: 1.75em
+    padding: 1em 1.5em
+    overflow-x: auto
+
+hr
+  border: 0
+  border-bottom: solid 1px rgba(160, 160, 160, 0.3)
+  margin: 2em 0
+  &.major
+    margin: 3em 0
+
+.align-left
+  text-align: left
+
+.align-center
+  text-align: center
+
+.align-right
+  text-align: right
+
+/* Author */
+
+.author
+  display: -moz-flex
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  -moz-flex-direction: row
+  -webkit-flex-direction: row
+  -ms-flex-direction: row
+  flex-direction: row
+  -moz-align-items: center
+  -webkit-align-items: center
+  -ms-align-items: center
+  align-items: center
+  -moz-justify-content: -moz-flex-end
+  -webkit-justify-content: -webkit-flex-end
+  -ms-justify-content: -ms-flex-end
+  justify-content: flex-end
+  border-bottom: 0
+  font-family: "Raleway", Helvetica, sans-serif
+  font-size: 0.6em
+  font-weight: 400
+  letter-spacing: 0.25em
+  text-transform: uppercase
+  white-space: nowrap
+  .name
+    -moz-transition: border-bottom-color 0.2s ease
+    -webkit-transition: border-bottom-color 0.2s ease
+    -ms-transition: border-bottom-color 0.2s ease
+    transition: border-bottom-color 0.2s ease
+    border-bottom: dotted 1px rgba(160, 160, 160, 0.65)
+    display: block
+    margin: 0 1.5em 0 0
+  img
+    border-radius: 100%
+    display: block
+    width: 4em
+  &:hover .name
+    border-bottom-color: transparent
+
+/* Blurb */
+
+.blurb
+  h2
+    font-size: 0.8em
+    margin: 0 0 1.5em 0
+  h3
+    font-size: 0.7em
+  p
+    font-size: 0.9em
+
+/* Box */
+
+.box
+  border: solid 1px rgba(160, 160, 160, 0.3)
+  margin-bottom: 2em
+  padding: 1.5em
+  > :last-child
+    margin-bottom: 0
+    > :last-child
+      margin-bottom: 0
+      > :last-child
+        margin-bottom: 0
+  &.alt
+    border: 0
+    border-radius: 0
+    padding: 0
+
+/* Button */
+
+input
+  &[type="submit"], &[type="reset"], &[type="button"]
+    -moz-appearance: none
+    -webkit-appearance: none
+    -ms-appearance: none
+    appearance: none
+    -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+    -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+    -ms-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+    background-color: transparent
+    border: 0
+    box-shadow: inset 0 0 0 1px rgba(160, 160, 160, 0.3)
+    color: #3c3b3b !important
+    cursor: pointer
+    display: inline-block
+    font-family: "Raleway", Helvetica, sans-serif
+    font-size: 0.6em
+    font-weight: 800
+    height: 4.8125em
+    letter-spacing: 0.25em
+    line-height: 4.8125em
+    padding: 0 2.5em
+    text-align: center
+    text-decoration: none
+    text-transform: uppercase
+    white-space: nowrap
+
+button, .button
+  -moz-appearance: none
+  -webkit-appearance: none
+  -ms-appearance: none
+  appearance: none
+  -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+  -ms-transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease
+  background-color: transparent
+  border: 0
+  box-shadow: inset 0 0 0 1px rgba(160, 160, 160, 0.3)
+  color: #3c3b3b !important
+  cursor: pointer
+  display: inline-block
+  font-family: "Raleway", Helvetica, sans-serif
+  font-size: 0.6em
+  font-weight: 800
+  height: 4.8125em
+  letter-spacing: 0.25em
+  line-height: 4.8125em
+  padding: 0 2.5em
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  white-space: nowrap
+
+input
+  &[type="submit"]:hover, &[type="reset"]:hover, &[type="button"]:hover
+    box-shadow: inset 0 0 0 1px #2ebaae
+    color: #2ebaae !important
+
+button:hover, .button:hover
+  box-shadow: inset 0 0 0 1px #2ebaae
+  color: #2ebaae !important
+
+input
+  &[type="submit"]:hover:active, &[type="reset"]:hover:active, &[type="button"]:hover:active
+    background-color: rgba(46, 186, 174, 0.05)
+
+button:hover:active, .button:hover:active
+  background-color: rgba(46, 186, 174, 0.05)
+
+input
+  &[type="submit"]
+    &:before, &:after
+      color: #aaaaaa
+      position: relative
+  &[type="reset"]
+    &:before, &:after
+      color: #aaaaaa
+      position: relative
+  &[type="button"]
+    &:before, &:after
+      color: #aaaaaa
+      position: relative
+
+button
+  &:before, &:after
+    color: #aaaaaa
+    position: relative
+
+.button
+  &:before, &:after
+    color: #aaaaaa
+    position: relative
+
+input
+  &[type="submit"]:before, &[type="reset"]:before, &[type="button"]:before
+    left: -1em
+    padding: 0 0 0 0.75em
+
+button:before, .button:before
+  left: -1em
+  padding: 0 0 0 0.75em
+
+input
+  &[type="submit"]:after, &[type="reset"]:after, &[type="button"]:after
+    left: 1em
+    padding: 0 0.75em 0 0
+
+button:after, .button:after
+  left: 1em
+  padding: 0 0.75em 0 0
+
+input
+  &[type="submit"].fit, &[type="reset"].fit, &[type="button"].fit
+    display: block
+    margin: 0 0 1em 0
+    width: 100%
+
+button.fit, .button.fit
+  display: block
+  margin: 0 0 1em 0
+  width: 100%
+
+input
+  &[type="submit"].big, &[type="reset"].big, &[type="button"].big
+    font-size: 0.7em
+    padding: 0 3em
+
+button.big, .button.big
+  font-size: 0.7em
+  padding: 0 3em
+
+input
+  &[type="submit"].small, &[type="reset"].small, &[type="button"].small
+    font-size: 0.5em
+
+button.small, .button.small
+  font-size: 0.5em
+
+input
+  &[type="submit"]
+    &.disabled, &:disabled
+      -moz-pointer-events: none
+      -webkit-pointer-events: none
+      -ms-pointer-events: none
+      pointer-events: none
+      color: rgba(160, 160, 160, 0.3) !important
+  &[type="reset"]
+    &.disabled, &:disabled
+      -moz-pointer-events: none
+      -webkit-pointer-events: none
+      -ms-pointer-events: none
+      pointer-events: none
+      color: rgba(160, 160, 160, 0.3) !important
+  &[type="button"]
+    &.disabled, &:disabled
+      -moz-pointer-events: none
+      -webkit-pointer-events: none
+      -ms-pointer-events: none
+      pointer-events: none
+      color: rgba(160, 160, 160, 0.3) !important
+
+button
+  &.disabled, &:disabled
+    -moz-pointer-events: none
+    -webkit-pointer-events: none
+    -ms-pointer-events: none
+    pointer-events: none
+    color: rgba(160, 160, 160, 0.3) !important
+
+.button
+  &.disabled, &:disabled
+    -moz-pointer-events: none
+    -webkit-pointer-events: none
+    -ms-pointer-events: none
+    pointer-events: none
+    color: rgba(160, 160, 160, 0.3) !important
+
+input
+  &[type="submit"]
+    &.disabled:before, &:disabled:before
+      color: rgba(160, 160, 160, 0.3) !important
+  &[type="reset"]
+    &.disabled:before, &:disabled:before
+      color: rgba(160, 160, 160, 0.3) !important
+  &[type="button"]
+    &.disabled:before, &:disabled:before
+      color: rgba(160, 160, 160, 0.3) !important
+
+button
+  &.disabled:before, &:disabled:before
+    color: rgba(160, 160, 160, 0.3) !important
+
+.button
+  &.disabled:before, &:disabled:before
+    color: rgba(160, 160, 160, 0.3) !important
+
+/* Form */
+
+form
+  margin: 0 0 2em 0
+  &.search
+    text-decoration: none
+    position: relative
+    &:before
+      -moz-osx-font-smoothing: grayscale
+      -webkit-font-smoothing: antialiased
+      font-family: FontAwesome
+      font-style: normal
+      font-weight: normal
+      text-transform: none !important
+      color: #aaaaaa
+      content: '\f002'
+      display: block
+      height: 2.75em
+      left: 0
+      line-height: 2.75em
+      position: absolute
+      text-align: center
+      top: 0
+      width: 2.5em
+    > input:first-child
+      padding-left: 2.5em
+
+label
+  color: #3c3b3b
+  display: block
+  font-size: 0.9em
+  font-weight: 700
+  margin: 0 0 1em 0
+
+input
+  &[type="text"], &[type="password"], &[type="email"], &[type="tel"]
+    -moz-appearance: none
+    -webkit-appearance: none
+    -ms-appearance: none
+    appearance: none
+    background: rgba(160, 160, 160, 0.075)
+    border: none
+    border: solid 1px rgba(160, 160, 160, 0.3)
+    border-radius: 0
+    color: inherit
+    display: block
+    outline: 0
+    padding: 0 1em
+    text-decoration: none
+    width: 100%
+
+select, textarea
+  -moz-appearance: none
+  -webkit-appearance: none
+  -ms-appearance: none
+  appearance: none
+  background: rgba(160, 160, 160, 0.075)
+  border: none
+  border: solid 1px rgba(160, 160, 160, 0.3)
+  border-radius: 0
+  color: inherit
+  display: block
+  outline: 0
+  padding: 0 1em
+  text-decoration: none
+  width: 100%
+
+input
+  &[type="text"]:invalid, &[type="password"]:invalid, &[type="email"]:invalid, &[type="tel"]:invalid
+    box-shadow: none
+
+select:invalid, textarea:invalid
+  box-shadow: none
+
+input
+  &[type="text"]:focus, &[type="password"]:focus, &[type="email"]:focus, &[type="tel"]:focus
+    border-color: #2ebaae
+    box-shadow: inset 0 0 0 1px #2ebaae
+
+select:focus, textarea:focus
+  border-color: #2ebaae
+  box-shadow: inset 0 0 0 1px #2ebaae
+
+.select-wrapper
+  text-decoration: none
+  display: block
+  position: relative
+  &:before
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    font-family: FontAwesome
+    font-style: normal
+    font-weight: normal
+    text-transform: none !important
+    color: rgba(160, 160, 160, 0.3)
+    content: '\f078'
+    display: block
+    height: 2.75em
+    line-height: 2.75em
+    pointer-events: none
+    position: absolute
+    right: 0
+    text-align: center
+    top: 0
+    width: 2.75em
+  select::-ms-expand
+    display: none
+
+input
+  &[type="text"], &[type="password"], &[type="email"]
+    height: 2.75em
+
+select
+  height: 2.75em
+
+textarea
+  padding: 0.75em 1em
+
+input
+  &[type="checkbox"], &[type="radio"]
+    -moz-appearance: none
+    -webkit-appearance: none
+    -ms-appearance: none
+    appearance: none
+    display: block
+    float: left
+    margin-right: -2em
+    opacity: 0
+    width: 1em
+    z-index: -1
+  &[type="checkbox"] + label, &[type="radio"] + label
+    text-decoration: none
+    color: #646464
+    cursor: pointer
+    display: inline-block
+    font-size: 1em
+    font-weight: 400
+    padding-left: 2.4em
+    padding-right: 0.75em
+    position: relative
+  &[type="checkbox"] + label:before, &[type="radio"] + label:before
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    font-family: FontAwesome
+    font-style: normal
+    font-weight: normal
+    text-transform: none !important
+  &[type="checkbox"] + label:before, &[type="radio"] + label:before
+    background: rgba(160, 160, 160, 0.075)
+    border: solid 1px rgba(160, 160, 160, 0.3)
+    content: ''
+    display: inline-block
+    height: 1.65em
+    left: 0
+    line-height: 1.58125em
+    position: absolute
+    text-align: center
+    top: 0
+    width: 1.65em
+  &[type="checkbox"]:checked + label:before, &[type="radio"]:checked + label:before
+    background: #3c3b3b
+    border-color: #3c3b3b
+    color: #ffffff
+    content: '\f00c'
+  &[type="checkbox"]:focus + label:before
+    border-color: #2ebaae
+    box-shadow: 0 0 0 1px #2ebaae
+  &[type="radio"]
+    &:focus + label:before
+      border-color: #2ebaae
+      box-shadow: 0 0 0 1px #2ebaae
+    + label:before
+      border-radius: 100%
+
+\::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, .formerize-placeholder
+  color: #aaaaaa !important
+  opacity: 1.0
+
+/* Icon */
+
+.icon
+  text-decoration: none
+  border-bottom: none
+  position: relative
+  &:before
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    font-family: FontAwesome
+    font-style: normal
+    font-weight: normal
+    text-transform: none !important
+  > .label
+    display: none
+  &.suffix:before
+    float: right
+
+/* Image */
+
+.image
+  border: 0
+  display: inline-block
+  position: relative
+  img
+    display: block
+  &.left, &.right
+    max-width: 40%
+  &.left img, &.right img
+    width: 100%
+  &.left
+    float: left
+    padding: 0 1.5em 1em 0
+    top: 0.25em
+  &.right
+    float: right
+    padding: 0 0 1em 1.5em
+    top: 0.25em
+  &.fit
+    display: block
+    margin: 0 0 2em 0
+    width: 100%
+    img
+      width: 100%
+  &.featured, &.main
+    display: block
+    margin: 0 0 3em 0
+    width: 100%
+    img
+      width: 100%
+
+@media screen and (max-width: 736px)
+  .image.featured
+    margin: 0 0 1.5em 0
+
+/* List */
+
+ol
+  list-style: decimal
+  margin: 0 0 2em 0
+  padding-left: 1.25em
+  li
+    padding-left: 0.25em
+
+ul
+  list-style: disc
+  margin: 0 0 2em 0
+  padding-left: 1em
+  li
+    padding-left: 0.5em
+  &.alt
+    list-style: none
+    padding-left: 0
+    li
+      border-top: solid 1px rgba(160, 160, 160, 0.3)
+      padding: 0.5em 0
+      &:first-child
+        border-top: 0
+        padding-top: 0
+  &.icons
+    cursor: default
+    list-style: none
+    padding-left: 0
+    li
+      display: inline-block
+      padding: 0 1em 0 0
+      &:last-child
+        padding-right: 0
+      > *
+        text-decoration: none
+        border: 0
+        &:before
+          -moz-osx-font-smoothing: grayscale
+          -webkit-font-smoothing: antialiased
+          font-family: FontAwesome
+          font-style: normal
+          font-weight: normal
+          text-transform: none !important
+        .label
+          display: none
+  &.actions
+    cursor: default
+    list-style: none
+    padding-left: 0
+    li
+      display: inline-block
+      padding: 0 1.5em 0 0
+      vertical-align: middle
+      &:last-child
+        padding-right: 0
+    &.pagination
+      .next
+        text-decoration: none
+        &:after
+          content: ""
+          -moz-osx-font-smoothing: grayscale
+          -webkit-font-smoothing: antialiased
+          font-family: FontAwesome
+          font-style: normal
+          font-weight: normal
+          text-transform: none !important
+          content: '\f054'
+      .previous
+        text-decoration: none
+        &:before
+          content: ""
+          -moz-osx-font-smoothing: grayscale
+          -webkit-font-smoothing: antialiased
+          font-family: FontAwesome
+          font-style: normal
+          font-weight: normal
+          text-transform: none !important
+          content: '\f053'
+    &.small li
+      padding: 0 1em 0 0
+    &.vertical
+      li
+        display: block
+        padding: 1.5em 0 0 0
+        &:first-child
+          padding-top: 0
+        > *
+          margin-bottom: 0
+      &.small li
+        padding: 1em 0 0 0
+        &:first-child
+          padding-top: 0
+    &.fit
+      display: table
+      margin-left: -1em
+      padding: 0
+      table-layout: fixed
+      width: calc(100% + 1em)
+      li
+        display: table-cell
+        padding: 0 0 0 1em
+        > *
+          margin-bottom: 0
+      &.small
+        margin-left: -0.5em
+        width: calc(100% + 0.5em)
+        li
+          padding: 0 0 0 0.5em
+  &.posts
+    list-style: none
+    padding: 0
+    li
+      border-top: dotted 1px rgba(160, 160, 160, 0.3)
+      margin: 1.5em 0 0 0
+      padding: 1.5em 0 0 0
+      &:first-child
+        border-top: 0
+        margin-top: 0
+        padding-top: 0
+    article
+      display: -moz-flex
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      -moz-align-items: -moz-flex-start
+      -webkit-align-items: -webkit-flex-start
+      -ms-align-items: -ms-flex-start
+      align-items: flex-start
+      -moz-flex-direction: row-reverse
+      -webkit-flex-direction: row-reverse
+      -ms-flex-direction: row-reverse
+      flex-direction: row-reverse
+      .image
+        display: block
+        margin-right: 1.5em
+        min-width: 4em
+        width: 4em
+        img
+          width: 100%
+      header
+        -moz-flex-grow: 1
+        -webkit-flex-grow: 1
+        -ms-flex-grow: 1
+        flex-grow: 1
+        -ms-flex: 1
+        h3
+          font-size: 0.7em
+          margin-top: 0.125em
+        .published
+          display: block
+          font-family: "Raleway", Helvetica, sans-serif
+          font-size: 0.6em
+          font-weight: 400
+          letter-spacing: 0.25em
+          margin: -0.625em 0 1.7em 0
+          text-transform: uppercase
+        > :last-child
+          margin-bottom: 0
+
+@media screen and (max-width: 1280px)
+  ul.actions.pagination
+    text-align: center
+    .next, .previous
+      min-width: 20em
+
+@media screen and (max-width: 736px)
+  ul.actions.pagination
+    .next, .previous
+      min-width: 18em
+
+@media screen and (max-width: 480px)
+  ul.actions
+    margin: 0 0 2em 0
+    li
+      padding: 1em 0 0 0
+      display: block
+      text-align: center
+      width: 100%
+      &:first-child
+        padding-top: 0
+      > *
+        width: 100%
+        margin: 0 !important
+    &.small li
+      padding: 0.5em 0 0 0
+      &:first-child
+        padding-top: 0
+
+dl
+  margin: 0 0 2em 0
+  dt
+    display: block
+    font-weight: 700
+    margin: 0 0 1em 0
+  dd
+    margin-left: 2em
+
+/* Mini Post */
+
+.mini-post
+  display: -moz-flex
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  -moz-flex-direction: column-reverse
+  -webkit-flex-direction: column-reverse
+  -ms-flex-direction: column-reverse
+  flex-direction: column-reverse
+  background: #ffffff
+  border: solid 1px rgba(160, 160, 160, 0.3)
+  margin: 0 0 2em 0
+  .image
+    overflow: hidden
+    width: 100%
+    img
+      -moz-transition: -moz-transform 0.2s ease-out
+      -webkit-transition: -webkit-transform 0.2s ease-out
+      -ms-transition: -ms-transform 0.2s ease-out
+      transition: transform 0.2s ease-out
+      width: 100%
+    &:hover img
+      -moz-transform: scale(1.05)
+      -webkit-transform: scale(1.05)
+      -ms-transform: scale(1.05)
+      transform: scale(1.05)
+  header
+    padding: 1.25em 4.25em 0.1em 1.25em
+    min-height: 4em
+    position: relative
+    -moz-flex-grow: 1
+    -webkit-flex-grow: 1
+    -ms-flex-grow: 1
+    flex-grow: 1
+    h3
+      font-size: 0.7em
+    .published
+      display: block
+      font-family: "Raleway", Helvetica, sans-serif
+      font-size: 0.6em
+      font-weight: 400
+      letter-spacing: 0.25em
+      margin: -0.625em 0 1.7em 0
+      text-transform: uppercase
+    .author
+      position: absolute
+      right: 2em
+      top: 2em
+
+.mini-posts
+  margin: 0 0 2em 0
+
+@media screen and (max-width: 1280px)
+  .mini-posts
+    display: -moz-flex
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    -moz-flex-wrap: wrap
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    width: calc(100% + 2em)
+    >
+      *
+        margin: 2em 2em 0 0
+        width: calc(50% - 2em)
+      \:nth-child(-n + 2)
+        margin-top: 0
+
+@media screen and (max-width: 480px)
+  .mini-posts
+    display: block
+    width: 100%
+    > *
+      margin: 0 0 2em 0
+      width: 100%
+
+/* Post */
+
+.post
+  padding: 3em 3em 1em 3em
+  background: #ffffff
+  border: solid 1px rgba(160, 160, 160, 0.3)
+  margin: 0 0 3em 0
+  position: relative
+  >
+    header
+      display: -moz-flex
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      border-bottom: solid 1px rgba(160, 160, 160, 0.3)
+      left: -3em
+      margin: -3em 0 3em 0
+      position: relative
+      width: calc(100% + 6em)
+      .title
+        -moz-flex-grow: 1
+        -webkit-flex-grow: 1
+        -ms-flex-grow: 1
+        flex-grow: 1
+        -ms-flex: 1
+        padding: 3.75em 3em 3.3em 3em
+        h2
+          font-weight: 900
+          font-size: 1.5em
+        > :last-child
+          margin-bottom: 0
+      .meta
+        padding: 3.75em 3em 1.75em 3em
+        border-left: solid 1px rgba(160, 160, 160, 0.3)
+        min-width: 17em
+        text-align: right
+        width: 17em
+        >
+          *
+            margin: 0 0 1em 0
+          \:last-child
+            margin-bottom: 0
+        .published
+          color: #3c3b3b
+          display: block
+          font-family: "Raleway", Helvetica, sans-serif
+          font-size: 0.7em
+          font-weight: 800
+          letter-spacing: 0.25em
+          margin-top: 0.5em
+          text-transform: uppercase
+          white-space: nowrap
+    a.image.featured
+      overflow: hidden
+      img
+        -moz-transition: -moz-transform 0.2s ease-out
+        -webkit-transition: -webkit-transform 0.2s ease-out
+        -ms-transition: -ms-transform 0.2s ease-out
+        transition: transform 0.2s ease-out
+      &:hover img
+        -moz-transform: scale(1.05)
+        -webkit-transform: scale(1.05)
+        -ms-transform: scale(1.05)
+        transform: scale(1.05)
+    footer
+      display: -moz-flex
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      -moz-align-items: center
+      -webkit-align-items: center
+      -ms-align-items: center
+      align-items: center
+      .actions
+        -moz-flex-grow: 1
+        -webkit-flex-grow: 1
+        -ms-flex-grow: 1
+        flex-grow: 1
+      .stats
+        cursor: default
+        list-style: none
+        padding: 0
+        li
+          border-left: solid 1px rgba(160, 160, 160, 0.3)
+          display: inline-block
+          font-family: "Raleway", Helvetica, sans-serif
+          font-size: 0.6em
+          font-weight: 400
+          letter-spacing: 0.25em
+          line-height: 1
+          margin: 0 0 0 2em
+          padding: 0 0 0 2em
+          text-transform: uppercase
+          &:first-child
+            border-left: 0
+            margin-left: 0
+            padding-left: 0
+          .icon
+            border-bottom: 0
+            &:before
+              color: rgba(160, 160, 160, 0.3)
+              margin-right: 0.75em
+
+@media screen and (max-width: 980px)
+  .post
+    border-left: 0
+    border-right: 0
+    left: -3em
+    width: calc(100% + (3em * 2))
+    > header
+      -moz-flex-direction: column
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      padding: 3.75em 3em 1.25em 3em
+      border-left: 0
+      .title
+        -ms-flex: 0 1 auto
+        margin: 0 0 2em 0
+        padding: 0
+        text-align: center
+      .meta
+        -moz-align-items: center
+        -webkit-align-items: center
+        -ms-align-items: center
+        align-items: center
+        display: -moz-flex
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        -moz-justify-content: center
+        -webkit-justify-content: center
+        -ms-justify-content: center
+        justify-content: center
+        border-left: 0
+        margin: 0 0 2em 0
+        padding-top: 0
+        padding: 0
+        text-align: left
+        width: 100%
+        >
+          *
+            border-left: solid 1px rgba(160, 160, 160, 0.3)
+            margin-left: 2em
+            padding-left: 2em
+          \:first-child
+            border-left: 0
+            margin-left: 0
+            padding-left: 0
+        .published
+          margin-bottom: 0
+          margin-top: 0
+        .author
+          -moz-flex-direction: row-reverse
+          -webkit-flex-direction: row-reverse
+          -ms-flex-direction: row-reverse
+          flex-direction: row-reverse
+          margin-bottom: 0
+          .name
+            margin: 0 0 0 1.5em
+          img
+            width: 3.5em
+
+@media screen and (max-width: 736px)
+  .post
+    padding: 1.5em 1.5em 0.1em 1.5em
+    left: -1.5em
+    margin: 0 0 2em 0
+    width: calc(100% + (1.5em * 2))
+    > header
+      padding: 3em 1.5em 0.5em 1.5em
+      left: -1.5em
+      margin: -1.5em 0 1.5em 0
+      width: calc(100% + 3em)
+      .title h2
+        font-size: 1.1em
+
+@media screen and (max-width: 480px)
+  .post >
+    header .meta
+      -moz-align-items: center
+      -webkit-align-items: center
+      -ms-align-items: center
+      align-items: center
+      -moz-flex-direction: column
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      > *
+        border-left: 0
+        margin: 1em 0 0 0
+        padding-left: 0
+      .author .name
+        display: none
+    .image.featured
+      margin-left: -1.5em
+      margin-top: calc(-1.5em - 1px)
+      width: calc(100% + 3em)
+    footer
+      -moz-align-items: stretch
+      -webkit-align-items: stretch
+      -ms-align-items: stretch
+      align-items: stretch
+      -moz-flex-direction: column-reverse
+      -webkit-flex-direction: column-reverse
+      -ms-flex-direction: column-reverse
+      flex-direction: column-reverse
+      .stats
+        text-align: center
+        li
+          margin: 0 0 0 1.25em
+          padding: 0 0 0 1.25em
+
+/* Section/Article */
+
+section.special, article.special
+  text-align: center
+
+header p
+  font-family: "Raleway", Helvetica, sans-serif
+  font-size: 0.7em
+  font-weight: 400
+  letter-spacing: 0.25em
+  line-height: 2.5
+  margin-top: -1em
+  text-transform: uppercase
+
+/* Table */
+
+.table-wrapper
+  -webkit-overflow-scrolling: touch
+  overflow-x: auto
+
+table
+  margin: 0 0 2em 0
+  width: 100%
+  tbody tr
+    border: solid 1px rgba(160, 160, 160, 0.3)
+    border-left: 0
+    border-right: 0
+    &:nth-child(2n + 1)
+      background-color: rgba(160, 160, 160, 0.075)
+  td
+    padding: 0.75em 0.75em
+  th
+    color: #3c3b3b
+    font-size: 0.9em
+    font-weight: 700
+    padding: 0 0.75em 0.75em 0.75em
+    text-align: left
+  thead
+    border-bottom: solid 2px rgba(160, 160, 160, 0.3)
+  tfoot
+    border-top: solid 2px rgba(160, 160, 160, 0.3)
+  &.alt
+    border-collapse: separate
+    tbody tr
+      td
+        border: solid 1px rgba(160, 160, 160, 0.3)
+        border-left-width: 0
+        border-top-width: 0
+        &:first-child
+          border-left-width: 1px
+      &:first-child td
+        border-top-width: 1px
+    thead
+      border-bottom: 0
+    tfoot
+      border-top: 0
+
+/* Header */
+
+body
+  padding-top: 3.5em
+
+#header
+  display: -moz-flex
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  -moz-justify-content: space-between
+  -webkit-justify-content: space-between
+  -ms-justify-content: space-between
+  justify-content: space-between
+  background-color: #ffffff
+  border-bottom: solid 1px rgba(160, 160, 160, 0.3)
+  height: 3.5em
+  left: 0
+  line-height: 3.5em
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 10000
+  a
+    color: inherit
+    text-decoration: none
+  ul
+    list-style: none
+    margin: 0
+    padding-left: 0
+    li
+      display: inline-block
+      padding-left: 0
+  h1
+    height: inherit
+    line-height: inherit
+    padding: 0 0 0 1.5em
+    white-space: nowrap
+    a
+      font-size: 0.7em
+  .links
+    -moz-flex: 1
+    -webkit-flex: 1
+    -ms-flex: 1
+    flex: 1
+    border-left: solid 1px rgba(160, 160, 160, 0.3)
+    height: inherit
+    line-height: inherit
+    margin-left: 1.5em
+    overflow: hidden
+    padding-left: 1.5em
+    ul li
+      border-left: solid 1px rgba(160, 160, 160, 0.3)
+      line-height: 1
+      margin-left: 1em
+      padding-left: 1em
+      &:first-child
+        border-left: 0
+        margin-left: 0
+        padding-left: 0
+      a
+        border-bottom: 0
+        font-family: "Raleway", Helvetica, sans-serif
+        font-size: 0.7em
+        font-weight: 400
+        letter-spacing: 0.25em
+        text-transform: uppercase
+  .main
+    height: inherit
+    line-height: inherit
+    text-align: right
+    ul
+      height: inherit
+      line-height: inherit
+      li
+        border-left: solid 1px rgba(160, 160, 160, 0.3)
+        height: inherit
+        line-height: inherit
+        white-space: nowrap
+        >
+          *
+            display: block
+            float: left
+          a
+            text-decoration: none
+            border-bottom: 0
+            color: #aaaaaa
+            overflow: hidden
+            position: relative
+            text-indent: 4em
+            width: 4em
+            &:before
+              -moz-osx-font-smoothing: grayscale
+              -webkit-font-smoothing: antialiased
+              font-family: FontAwesome
+              font-style: normal
+              font-weight: normal
+              text-transform: none !important
+              display: block
+              height: inherit
+              left: 0
+              line-height: inherit
+              position: absolute
+              text-align: center
+              text-indent: 0
+              top: 0
+              width: inherit
+  form
+    margin: 0
+    input
+      display: inline-block
+      height: 2.5em
+      position: relative
+      top: -2px
+      vertical-align: middle
+  #search
+    -moz-transition: all 0.5s ease
+    -webkit-transition: all 0.5s ease
+    -ms-transition: all 0.5s ease
+    transition: all 0.5s ease
+    max-width: 0
+    opacity: 0
+    overflow: hidden
+    padding: 0
+    white-space: nowrap
+    input
+      width: 12em
+    &.visible
+      max-width: 12.5em
+      opacity: 1
+      padding: 0 0.5em 0 0
+
+@media screen and (max-width: 980px)
+  #header .links
+    display: none
+
+@media screen and (max-width: 736px)
+  #header
+    height: 2.75em
+    line-height: 2.75em
+    h1
+      padding: 0 0 0 1em
+    .main .search
+      display: none
+
+/* Wrapper */
+
+#wrapper
+  display: -moz-flex
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  -moz-flex-direction: row-reverse
+  -webkit-flex-direction: row-reverse
+  -ms-flex-direction: row-reverse
+  flex-direction: row-reverse
+  -moz-transition: opacity 0.5s ease
+  -webkit-transition: opacity 0.5s ease
+  -ms-transition: opacity 0.5s ease
+  transition: opacity 0.5s ease
+  margin: 0 auto
+  max-width: 100%
+  opacity: 1
+  padding: 4.5em
+  width: 90em
+
+body
+  &.is-menu-visible #wrapper
+    opacity: 0.15
+  &.single #wrapper
+    display: block
+
+@media screen and (max-width: 1680px)
+  #wrapper
+    padding: 3em
+
+@media screen and (max-width: 1280px)
+  #wrapper
+    display: block
+
+@media screen and (max-width: 736px)
+  #wrapper
+    padding: 1.5em
+
+/* Main */
+
+#main
+  -moz-flex-grow: 1
+  -webkit-flex-grow: 1
+  -ms-flex-grow: 1
+  flex-grow: 1
+  -ms-flex: 1
+  width: 100%
+
+/* Sidebar */
+
+#sidebar
+  margin-right: 3em
+  min-width: 22em
+  width: 22em
+  >
+    *
+      border-top: solid 1px rgba(160, 160, 160, 0.3)
+      margin: 3em 0 0 0
+      padding: 3em 0 0 0
+    \:first-child
+      border-top: 0
+      margin-top: 0
+      padding-top: 0
+
+@media screen and (max-width: 1280px)
+  #sidebar
+    border-top: solid 1px rgba(160, 160, 160, 0.3)
+    margin: 3em 0 0 0
+    min-width: 0
+    padding: 3em 0 0 0
+    width: 100%
+
+/* Intro */
+
+#intro
+  .logo
+    border-bottom: 0
+    display: inline-block
+    margin: 0 0 1em 0
+    overflow: hidden
+    position: relative
+    width: 4em
+    &:before
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' viewBox='0 0 100 100' preserveAspectRatio='none' zoomAndPan='disable'%3E%3Cpolygon points='0,0 100,0 100,25 50,0 0,25' style='fill:%23f4f4f4' /%3E%3Cpolygon points='0,100 100,100 100,75 50,100 0,75' style='fill:%23f4f4f4' /%3E%3C/svg%3E")
+      background-position: top left
+      background-repeat: no-repeat
+      background-size: 100% 100%
+      content: ''
+      display: block
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+    img
+      display: block
+      margin-left: -0.25em
+      width: 4.5em
+  header
+    h2
+      font-size: 2em
+      font-weight: 900
+    p
+      font-size: 0.8em
+
+@media screen and (max-width: 1280px)
+  #intro
+    margin: 0 0 3em 0
+    text-align: center
+    header
+      h2
+        font-size: 2em
+      p
+        font-size: 0.7em
+
+@media screen and (max-width: 736px)
+  #intro
+    margin: 0 0 1.5em 0
+    padding: 1.25em 0
+    > :last-child
+      margin-bottom: 0
+    .logo
+      margin: 0 0 0.5em 0
+    header
+      h2
+        font-size: 1.25em
+      > :last-child
+        margin-bottom: 0
+
+/* Footer */
+
+#footer
+  .icons
+    color: #aaaaaa
+  .copyright
+    color: #aaaaaa
+    font-family: "Raleway", Helvetica, sans-serif
+    font-size: 0.5em
+    font-weight: 400
+    letter-spacing: 0.25em
+    text-transform: uppercase
+
+body.single #footer
+  text-align: center
+
+/* Menu */
+
+#menu
+  -moz-transform: translateX(25em)
+  -webkit-transform: translateX(25em)
+  -ms-transform: translateX(25em)
+  transform: translateX(25em)
+  -moz-transition: -moz-transform 0.5s ease, visibility 0.5s
+  -webkit-transition: -webkit-transform 0.5s ease, visibility 0.5s
+  -ms-transition: -ms-transform 0.5s ease, visibility 0.5s
+  transition: transform 0.5s ease, visibility 0.5s
+  -webkit-overflow-scrolling: touch
+  background: #ffffff
+  border-left: solid 1px rgba(160, 160, 160, 0.3)
+  box-shadow: none
+  height: 100%
+  max-width: 80%
+  overflow-y: auto
+  position: fixed
+  right: 0
+  top: 0
+  visibility: hidden
+  width: 25em
+  z-index: 10002
+  >
+    *
+      border-top: solid 1px rgba(160, 160, 160, 0.3)
+      padding: 3em
+      > :last-child
+        margin-bottom: 0
+    \:first-child
+      border-top: 0
+  .links
+    list-style: none
+    padding: 0
+    > li
+      border: 0
+      border-top: dotted 1px rgba(160, 160, 160, 0.3)
+      margin: 1.5em 0 0 0
+      padding: 1.5em 0 0 0
+      a
+        display: block
+        border-bottom: 0
+        h3
+          -moz-transition: color 0.2s ease
+          -webkit-transition: color 0.2s ease
+          -ms-transition: color 0.2s ease
+          transition: color 0.2s ease
+          font-size: 0.7em
+        p
+          font-family: "Raleway", Helvetica, sans-serif
+          font-size: 0.6em
+          font-weight: 400
+          letter-spacing: 0.25em
+          margin-bottom: 0
+          text-decoration: none
+          text-transform: uppercase
+        &:hover h3
+          color: #2ebaae
+      &:first-child
+        border-top: 0
+        margin-top: 0
+        padding-top: 0
+
+body.is-menu-visible #menu
+  -moz-transform: translateX(0)
+  -webkit-transform: translateX(0)
+  -ms-transform: translateX(0)
+  transform: translateX(0)
+  visibility: visible
+
+@media screen and (max-width: 736px)
+  #menu > *
+    padding: 1.5em

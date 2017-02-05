@@ -11,4 +11,58 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header#header
+      %h1
+        %a{:href => "#"} WebTsai_Log
+      %nav.links
+        %ul
+          %li
+            %a{:href => "#"} 誰是ＷebTsai
+          %li
+            %a{:href => "#"} 敗家開箱
+          %li
+            %a{:href => "#"} 技術文章
+          %li
+            %a{:href => "#"} 工作牢騷
+          %li
+            %a{:href => "#"} 保持聯絡
+      %nav.main
+        %ul
+          %li.search
+            %a.fa-search{:href => "#search"} Search
+            %form#search{:action => "#", :method => "get"}
+              %input{:name => "query", :placeholder => "Search", :type => "text"}/
+          %li.menu
+            %a.fa-bars{:href => "#menu"} Menu
+    / Menu
+    %section#menu
+      / Search
+      %section
+        %form.search{:action => "#", :method => "get"}
+          %input{:name => "query", :placeholder => "Search", :type => "text"}/
+      / Links
+      %section
+        %ul.links
+          %li
+            %a{:href => "#"}
+              %h3 Lorem ipsum
+              %p Feugiat tempus veroeros dolor
+          %li
+            %a{:href => "#"}
+              %h3 Dolor sit amet
+              %p Sed vitae justo condimentum
+          %li
+            %a{:href => "#"}
+              %h3 Feugiat veroeros
+              %p Phasellus sed ultricies mi congue
+          %li
+            %a{:href => "#"}
+              %h3 Etiam sed consequat
+              %p Porta lectus amet ultricies
+      / Actions
+      %section
+        %ul.actions.vertical
+          %li
+            %a.button.big.fit{:href => "#"} Log In
+
     = yield
