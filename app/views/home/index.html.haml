@@ -82,6 +82,13 @@
             %a.icon.fa-heart{:href => "#"} 28
           %li
             %a.icon.fa-comment{:href => "#"} 128
+    / Pagination
+    %ul.actions.pagination
+      %li
+        %a.disabled.button.big.previous{:href => ""} Previous Page
+      %li
+        %a.button.big.next{:href => "#"} Next Page
+
 
     / Sidebar
   %section#sidebar
@@ -180,8 +187,8 @@
               = image_tag("pic12.jpg")
     / About
     %section.blurb
-      %h2 About
-      %p Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.
+      %h2 WebTsai
+      %p 太多想法和腦力想要發揮，但是有時候又覺得想休息，熱愛戶外活動
       %ul.actions
         %li
           %a.button{:href => "#"} Learn More
@@ -189,24 +196,16 @@
     %section#footer
       %ul.icons
         %li
-          %a.fa-twitter{:href => "#"}
-            %span.label Twitter
-        %li
           %a.fa-facebook{:href => "#"}
             %span.label Facebook
-        %li
-          %a.fa-instagram{:href => "#"}
-            %span.label Instagram
-        %li
-          %a.fa-rss{:href => "#"}
-            %span.label RSS
         %li
           %a.fa-envelope{:href => "#"}
             %span.label Email
       %p.copyright
-        © Untitled. Crafted:
-        = succeed "." do
-          %a{:href => "http://designscrazed.org/"} HTML5
+        © 若無特別註明本站文章皆由本人撰寫，若要引用請留言告知
+        %br/
+        版型:
+        %a{:href => "https://html5up.net/"} HTML5 UP
 / Scripts
 %script{:src => "assets/javascripts/jquery.min.js"}
 %script{:src => "assets/javascripts/skel.min.js"}

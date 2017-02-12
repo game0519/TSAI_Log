@@ -1,0 +1,100 @@
+{:uriI"~file://app/assets/stylesheets/sass-lint.yml?type=text/yaml&id=d232f20c8d4ad75af36bb5d4e273cd7822524efc6290b34c042018b9ae8ab51c:ET:load_pathI"app/assets/stylesheets;T:filenameI")app/assets/stylesheets/sass-lint.yml;T:	nameI"sass-lint;T:logical_pathI"sass-lint.yml;T:content_typeI"text/yaml;T:sourceI"[options:
+  formatter: stylish
+files:
+  include: '**/*.s+(a|c)ss'
+rules:
+  # Extends
+  extends-before-mixins: 1
+  extends-before-declarations: 1
+  placeholder-in-extend: 1
+
+  # Mixins
+  mixins-before-declarations: 1
+
+  # Line Spacing
+  one-declaration-per-line: 1
+  empty-line-between-blocks: 1
+  single-line-per-selector: 1
+
+  # Disallows
+  no-attribute-selectors: 0
+  no-color-hex: 0
+  no-color-keywords: 1
+  no-color-literals: 1
+  no-combinators: 0
+  no-css-comments: 1
+  no-debug: 1
+  no-disallowed-properties: 0
+  no-duplicate-properties: 1
+  no-empty-rulesets: 1
+  no-extends: 0
+  no-ids: 1
+  no-important: 1
+  no-invalid-hex: 1
+  no-mergeable-selectors: 1
+  no-misspelled-properties: 1
+  no-qualifying-elements: 1
+  no-trailing-whitespace: 1
+  no-trailing-zero: 1
+  no-transition-all: 1
+  no-universal-selectors: 0
+  no-url-domains: 1
+  no-url-protocols: 1
+  no-vendor-prefixes: 1
+  no-warn: 1
+  property-units: 0
+
+  # Nesting
+  declarations-before-nesting: 1
+  force-attribute-nesting: 1
+  force-element-nesting: 1
+  force-pseudo-nesting: 1
+
+  # Name Formats
+  class-name-format: 1
+  function-name-format: 1
+  id-name-format: 0
+  mixin-name-format: 1
+  placeholder-name-format: 1
+  variable-name-format: 1
+
+  # Style Guide
+  attribute-quotes: 1
+  bem-depth: 0
+  border-zero: 1
+  brace-style: 1
+  clean-import-paths: 1
+  empty-args: 1
+  hex-length: 1
+  hex-notation: 1
+  indentation: 1
+  leading-zero: 1
+  max-line-length: 0
+  max-file-line-count: 0
+  nesting-depth: 1
+  property-sort-order: 1
+  pseudo-element: 1
+  quotes: 1
+  shorthand-values: 1
+  url-quotes: 1
+  variable-for-property: 1
+  zero-unit: 1
+
+  # Inner Spacing
+  space-after-comma: 1
+  space-before-colon: 1
+  space-after-colon: 1
+  space-before-brace: 1
+  space-before-bang: 1
+  space-after-bang: 1
+  space-between-parens: 1
+  space-around-operator: 1
+
+  # Final Items
+  trailing-semicolon: 1
+  final-newline: 1
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/yaml&file_type=text/yaml;TTI"7file-digest://app/assets/stylesheets/sass-lint.yml;TTF:charsetI"
+utf-8;F:digest"%júY8ù&<8›zx˜∞Öï˘  ¯ìb^G’ﬁ˚râI:lengthi[:dependencies_digest"%◊ÆB≠Ê–∏áÖÉ€ëÑ¯ü⁄f®D+ì≤qz*"y:idI"Ed232f20c8d4ad75af36bb5d4e273cd7822524efc6290b34c042018b9ae8ab51c;F:
+mtimel+‘ÑñX
