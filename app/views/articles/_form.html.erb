@@ -1,0 +1,40 @@
+<%= form_for(article) do |f| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :art_title, '標題' %><br>
+    <%= f.text_field :art_title %>
+  </p>
+  <p>
+    <%= f.label :art_subtitle, '副標題' %><br>
+    <%= f.text_field :art_subtitle %>
+  </p>
+  <p>
+    <%= f.label :art_cat_id, '類別編號' %><br>
+    <%= f.text_field :art_cat_id %>
+  </p>
+  <p>
+    <%= f.label :art_pic, '圖片連結' %><br>
+    <%= f.text_field :art_pic %>
+  </p>
+  <p>
+    <%= f.label :art_content, '內文' %><br>
+    <%= f.text_area :art_content %>
+  </p>
+  <p>
+    <%= f.label :art_preview, '內文簡述' %><br>
+    <%= f.text_area :art_preview %>
+  </p>
+  <p>
+    <%= f.submit '新增文章' %>
+  </p>
+<% end %>
